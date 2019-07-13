@@ -10,6 +10,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 //@RibbonClient(name="MICROSERVICE-DEPT",configuration=MyRule.class)
 public class DeptConsumer80_App {
 	public static void main(String[] args) {
+		//我们在这里加了一个注释
 		SpringApplication.run(DeptConsumer80_App.class, args);
 	}
 }
