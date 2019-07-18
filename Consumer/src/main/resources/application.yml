@@ -1,9 +1,7 @@
 server:
   port: 81
-  
-spring:
-  application:
-    name: mll-consumer
+
+
 
 eureka:
   client:
@@ -21,3 +19,23 @@ info:
   company.name: www.mll.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
+
+
+spring:
+  application:
+    name: mll-consumer
+
+#spring:
+  #静态文件请求匹配方式
+  mvc:
+    static-path-pattern: /**
+  #修改默认的静态寻址资源目录
+  resources:
+    static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+  thymeleaf:
+    encoding: UTF-8
+    #开发时关闭缓存,不然没法看到实时页面
+    cache: false
+    #prefix: classpath:/templates/
+    #suffix: .html

@@ -1,0 +1,30 @@
+
+#product {padding-left: 430px;}
+#buy{
+    float: left;
+    padding-top: 80px;
+    }
+.layui-carousel{
+    float: left;
+}
+.site-footer{
+
+    clear: both;
+}
+.introduce{
+    clear: both;
+    padding-left: 200px;
+}
+.introduce h1{
+    font-size: 70px;
+}
+#buy p{
+    padding-bottom: 30px;
+    padding-left: 20px;
+}
+#buy h2{
+    padding-bottom: 30px;
+    padding-left: 20px;
+}
+
+

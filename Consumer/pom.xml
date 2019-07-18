@@ -50,6 +50,13 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
+
+        <!-- 引入thymeleaf模版 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
