@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html xml:lang="zh-CN" lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<html xml:lang="zh-CN" lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" async="" src="js/mstr.js"></script>
-    <script type="text/javascript" async="" src="js/mstr_002.js"></script>
-    <script type="text/javascript" async="" src="js/jquery.js"></script>
-    <script type="text/javascript" async="" src="js/xmst.js"></script>
-    <script type="text/javascript" async="" src="js/hm.js"></script>
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-
+    <script type="text/javascript" src="http://127.1:81/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://127.1:81/js/jquery.js"></script>
+    <script type="text/javascript" src="http://127.1:81/js/xmst.js"></script>
+    <script type="text/javascript" src="http://127.1:81/js/hm.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta charset="UTF-8">
     <title>小米8 青春版 - 小米商城</title>
@@ -25,17 +22,23 @@
     <link rel="dns-prefetch" href="https://v.mifile.cn/">
     <link rel="dns-prefetch" href="https://a.huodong.mi.cn/">
 
+
+
     <link rel="shortcut icon" href="https://s01.mifile.cn/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://s01.mifile.cn/favicon.ico" type="image/x-icon">
     <link rel="search" title="mi.com" href="https://s1.mi.com/search.xml?v1.0"
           type="application/opensearchdescription+xml">
     <meta http-equiv="Cache-Control" content="no-transform ">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
 
-    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="http://127.1:81/css/base.css">
+    <link rel="stylesheet" type="text/css" href="http://127.1:81/css/index.css">
+    <link type="text/css" rel="stylesheet" href="http://127.1:81/css/style.css" />
+
+    <link rel="stylesheet" href="http://182.92.194.216:2202/PGStatic/layui/css/layui.css" media="all">
+    <!--<link rel="stylesheet" href="http://182.92.194.216:2202/PGStatic/layui/css/layui.mobile.css" media="all">-->
+    <!--<link rel="stylesheet" href="http://182.92.194.216:2202/PGStatic/layui/font" media="all">-->
+    <!--<link rel="stylesheet" href="http://182.92.194.216:2202/PGStatic/layui/css/modules/layer/default/layer.css" media="all">-->
 
     <script type="text/javascript">var _head_over_time = (new Date()).getTime();</script>
     <script>
@@ -1241,7 +1244,7 @@
                 <li class="nav-item">
                     <a class="link" href="javascript: void(0);" data-stat-id="69baf6920236bfcb"
                        onclick="_msq.push(['trackEvent', '5c774109361a63ca-69baf6920236bfcb', 'javascript:void0', 'pcpid', '']);"><span
-                            class="text">小米手机</span><span class="arrow"></span></a>
+                            class="text">手机</span><span class="arrow"></span></a>
                     <div class="item-children">
                         <div class="container">
                             <ul class="children-list clearfix">
@@ -2048,27 +2051,33 @@
         <div class="thumb">
             <div class="layui-carousel" id="test1">
                 <div carousel-item>
-                    <div><img src="http://182.92.194.216:2202/PGStatic/image/cc91.jpg" width="680px"></div>
-                    <div><img src="http://182.92.194.216:2202/PGStatic/image/cc92.jpg" width="680px"></div>
-                    <div><img src="http://182.92.194.216:2202/PGStatic/image/cc93.jpg" width="680px"></div>
-                    <div><img src="http://182.92.194.216:2202/PGStatic/image/cc94.jpg" width="680px"></div>
+                    <div><img th:src="${mpi[0]}" width="680px"></div>
+                    <div><img th:src="${mpi[1]}" width="680px"></div>
+                    <div><img th:src="${mpi[2]}" width="680px"></div>
+                    <div><img th:src="${mpi[3]}" width="680px"></div>
                 </div>
             </div>
         </div>
         <div id="buy">
-            <h2><strong>小米CC9</strong></h2>
-            <p>商城价：<span class="price">0000￥</span></p>
-            <p>库　存：还剩1899库存</p>
-            <p>颜　色：黑 红 百 蓝 绿</p>
-            <p>内　存：64G 128G 256G</p>
-            <p>型　号：
-            <select>
-                <option>中国电信</option>
-                <option>中国联通</option>
-                <option>全网4G</option>
-            </select>
+            <h2><strong th:text="${details.mp_name}"></strong></h2>
+            <sapn id="jieshao"><span id="jieshaoyanse">「新品火爆热卖中，享花呗6期免息，+19元可得果冻包」</span><span th:utext="${details.mp_descpiption}"></span></sapn>
+            <p><span class="ziti">买来乐自营</span><br/>
+                <span class="price"><strong th:text="${details.mp_price}+'元'">1799元</strong></span></p>
+            <p><span class="ziti">选择颜色</span>：
+                <button type="button" class="layui-btn layui-btn-primary"><img th:src="${mps[0]}" width="30px"><span th:text="${mwz[0]}">白色恋人（白色）</span></button>
+                <button type="button" class="layui-btn layui-btn-primary"><img th:src="${mps[1]}" width="30px"><span th:text="${mwz[1]}">深蓝星球（蓝色）</span></button><br/><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="layui-btn layui-btn-primary"><img th:src="${mps[2]}" width="30px"><span th:text="${mwz[2]}">暗夜王子（深空灰）</span></button>
             </p>
-            <div class="button">
+            <p><span class="ziti">选择版本</span>
+                <button type="button" class="layui-btn1 layui-btn-primary"><span th:text="${mmb[0]}">6GB+64GB</span><span th:text="' '+${mpr[0]}+'元'"> (1799元)</span></button>
+                <button type="button" class="layui-btn1 layui-btn-primary"><span th:text="${mmb[1]}">6GB+128GB</span><span th:text="' '+${mpr[1]}+'元'"> (1999元)</span></button><br/><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="layui-btn1 layui-btn-primary"><span th:text="${mmb[2]}">8GB+256GB</span><span th:text="' '+${mpr[2]}+'元'"> (3000元)</span></button>
+            </p>
+
+
+            <div id="goumao">
                 <button type="button" class="layui-btn layui-btn-primary"><h3><strong>立即购买</strong></h3></button> <button type="button" class="layui-btn layui-btn-primary"><h3><strong>加入购物车</strong></h3></button>
             </div>
         </div>
@@ -2076,19 +2085,89 @@
     </div>
 </div>
 <div class="introduce">
-    <br/><br/><br/>
-    <h1><strong>商品详情</strong></h1>
+    <br/><br/><br/><br/><br/><br/>
+
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this"><h2><strong>商品详情</strong></h2></li>
+            <li><h2><strong>查看评价</strong></h2></li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <div class="layui-tab-item layui-show"><!--商品详细-->
+                <div class="text">
+                    <div class="layui-carousel" id="test2">
+                        <div carousel-item>
+                            <div><img th:src="${mwi[0]}" width="1930px"></div>
+                            <div><img th:src="${mwi[1]}" width="1930px"></div>
+                            <div><img th:src="${mwi[2]}" width="1930px"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div><img th:src="${mix[0]}" width="1930px"></div>
+                    <div><img th:src="${mix[1]}" width="1930px"></div>
+                    <div><img th:src="${mix[2]}" width="1930px"></div>
+                    <div><img th:src="${mix[3]}" width="1930px"></div>
+
+
+                    <!--图片自动播放-->
+                    <style>
+                        *{ margin:0; padding:0; list-style:none;}
+                        #box{ width:1930px; height:800px; margin:30px auto; position:relative; overflow:hidden;}
+                        #box ul{ position:absolute; left:0; top:0;}
+                        #box ul li{ width:691px; height:491px; float:left;}
+                    </style>
+                    <script>
+                        window.onload=function(){
+                            var oBox=document.getElementById('box');
+                            var oUl=oBox.children[0];
+                            var aLi=oUl.children;
+                            //复制一份内容
+                            oUl.innerHTML+=oUl.innerHTML;
+                            oUl.style.width=aLi.length*aLi[0].offsetWidth+'px';
+                            setInterval(function(){
+                                var l=oUl.offsetLeft+10;
+                                if(l>=0){
+                                    l=-oUl.offsetWidth/2;
+                                }
+                                oUl.style.left=l+'px';
+                            },70);
+                        };
+                    </script>
+                    </head>
+                    <body>
+                    <div id="box">
+                        <ul>
+                            <li><img th:src="${mix[4]}" width="671px"></li>
+                            <li><img th:src="${mix[5]}" width="671px"></li>
+                            <li><img th:src="${mix[6]}" width="671px"></li>
+                            <li><img th:src="${mix[7]}" width="671px"></li>
+                        </ul>
+                    </div>
+                    </body>
+                    <!--图片自动播放-->
+                    <div><img th:src="${mix[8]}" width="1930px"></div>
+                </div>
+            </div>
+
+            <div class="layui-tab-item"><!--商品评论-->
+                <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+                    <legend>自定义内容</legend>
+                </fieldset>
+
+                <div id="test5"></div>
+                <div><div id="test6"></div></div>
+            </div>
+        </div>
+    </div>
     <br/><br/><br/>
     </div>
 </div>
-<div class="text">
-    <div class="layui-carousel" id="test2">
-        <div carousel-item>
-            <div><img src="image/cc9lb1.png" width="1930px"></div>
-            <div><img src="image/cc9lb2.png" width="1930px"></div>
-            <div><img src="image/cc9lb3.png" width="1930px"></div>
-        </div>
-    </div>
+
+
+
 
 <div class="site-footer">
     <div class="container">
@@ -2529,7 +2608,7 @@
     </div>
 </div>
 <!-- .modal-globalSites END -->
-<script src="js/base.js"></script>
+<script src="http://127.1:81/js/base.js"></script>
 <div id="J_agreeModal" class="modal fade modal-agree in modal-hide">
     <div class="modal-hd"><a class="close J_close" data-dismiss="modal" data-stat-id="a0641baa711604bc"
                              onclick="_msq.push(['trackEvent', '5c774109361a63ca-a0641baa711604bc', '', 'pcpid', '']);"><i
@@ -2574,7 +2653,7 @@
     })();
 </script>
 <script type="text/javascript"
-        src="js/index.js"></script>
+        src="http://127.1:81/js/index.js"></script>
 <!-- <script src="//i1.mifile.cn/f/i/15/stat/js/xmsg_ti.js"></script> -->
 <script>
     // 百度统计API文档
@@ -2608,14 +2687,14 @@
 <!--mae_monitor-->
 
 </body>
-<script src="layui/layui.all.js"></script>
+<script src="http://182.92.194.216:2202/PGStatic/layui/layui.all.js"></script>
 <script type="text/javascript">
     layui.use('carousel', function(){
         var carousel = layui.carousel;
         //建造实例
         carousel.render({
             elem: '#test1'
-            ,height:'600px'
+            ,height:'620px'
             ,width: '45%' //设置容器宽度
             ,arrow: 'always' //始终显示箭头
             //,anim: 'updown' //切换动画方式
@@ -2633,5 +2712,85 @@
             //,anim: 'updown' //切换动画方式
         });
     });
+
+    layui.use(['rate'], function(){
+
+        var rate = layui.rate;
+        //自定义文本
+        rate.render({
+            elem: '#test5'
+            ,value: 3
+            ,text: true
+            ,setText: function(value){ //自定义文本的回调
+                var arrs = {
+                    '1': '极差'
+                    ,'2': '差'
+                    ,'3': '中等'
+                    ,'4': '好'
+                    ,'5': '极好'
+                };
+                this.span.text(arrs[value] || ( value + "星"));
+            }
+        })
+        rate.render({
+            elem: '#test6'
+            ,value: 1.5
+            ,half: true
+            ,text: true
+            ,setText: function(value){
+                this.span.text(value);
+            }
+        })
+    });
+
 </script>
+
+<!--选择手机型号-->
+<script type="text/javascript">
+    $(function(){
+        $(".layui-btn").click(function () {
+           $(this).css("border-color","darkorange");
+           $(this).siblings().css("border-color","#999");
+            $(this).css("color","darkorange");
+            $(this).siblings().css("color","black");
+
+           /*$.ajax({
+               url:"",
+               type:"post",
+               data:{"",},
+               success:function (obj) {
+                   
+               }
+
+           });*/
+        });
+    });
+
+
+    $(function(){
+        $(".layui-btn1").css("border-color","#999");
+        $(".layui-btn1").css("width","200px");
+        $(".layui-btn1").css("height","40px");
+        $(".layui-btn1").click(function () {
+            $(this).css("border-color","darkorange");
+            $(this).siblings().css("border-color","#999");
+            $(this).css("color","darkorange");
+            $(this).siblings().css("color","black");
+
+            /*$.ajax({
+                url:"",
+                type:"post",
+                data:{"",},
+                success:function (obj) {
+
+                }
+
+            });*/
+        });
+    });
+</script>
+
+
+
+
 </html>

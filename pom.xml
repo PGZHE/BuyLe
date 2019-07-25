@@ -77,7 +77,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>microservice</finalName>
+        <finalName>mll</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
