@@ -4,9 +4,13 @@
 
 <mapper namespace="com.mll.springcloud.dao.DetailsDao">
 
-    <select id="DetailsSelectAll" resultType="Details">
-        SELECT 	`mp_id`, `mp_name`, `mp_descpiption`, `mp_price`, `mp_stock`, `mpc_id`, `mp_file_name`, `mp_special`FROM `MLL`.`MLL_PRODUCT`
-        WHERE mp_id =id
+    <!--//查询指定商品详情-->
+    <select id="detailsAll" resultType="details">
+      SELECT
+        *
+        FROM
+        `MLL_PRODUCT`
+        WHERE mp_id=#{id}
     </select>
 
 </mapper>
