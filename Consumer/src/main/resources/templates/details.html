@@ -2048,7 +2048,8 @@
 <div id="product" class="main">
     <h1></h1>
     <div class="infos">
-        <div class="thumb">
+        <!--商品编号等于1显示-->
+        <div class="thumb" th:if="${details.mp_id} ==1">
             <div class="layui-carousel" id="test1">
                 <div carousel-item>
                     <div><img th:src="${mpi[0]}" width="680px"></div>
@@ -2058,6 +2059,19 @@
                 </div>
             </div>
         </div>
+        <!--商品编号等于2显示-->
+       <div class="thumb" th:if="${details.mp_id} ==2">
+            <div class="layui-carousel" id="test1">
+                <div carousel-item>
+                    <div><img th:src="${mpi[0]}" width="680px" height="630px"></div>
+                    <div><img th:src="${mpi[1]}" width="680px" height="630px"></div>
+                    <div><img th:src="${mpi[2]}" width="680px" height="630px"></div>
+                    <div><img th:src="${mpi[3]}" width="680px" height="630px"></div>
+                    <div><img th:src="${mpi[4]}" width="680px" height="630px"></div>
+                </div>
+            </div>
+        </div>
+
         <div id="buy">
             <h2><strong th:text="${details.mp_name}"></strong></h2>
             <sapn id="jieshao"><span id="jieshaoyanse">「新品火爆热卖中，享花呗6期免息，+19元可得果冻包」</span><span th:utext="${details.mp_descpiption}"></span></sapn>
@@ -2096,13 +2110,14 @@
 
             <div class="layui-tab-item layui-show"><!--商品详细-->
                 <div class="text">
-                    <div class="layui-carousel" id="test2">
+                    <div class="layui-carousel" id="test2" th:if="${details.mp_id} ==1"><!--商品详情轮播图只有商品编号等于1的时候才会显示-->
                         <div carousel-item>
                             <div><img th:src="${mwi[0]}" width="1930px"></div>
                             <div><img th:src="${mwi[1]}" width="1930px"></div>
                             <div><img th:src="${mwi[2]}" width="1930px"></div>
                         </div>
                     </div>
+
                 </div>
 
                 <div>
@@ -2138,7 +2153,7 @@
                     </script>
                     </head>
                     <body>
-                    <div id="box">
+                    <div id="box" th:if="${details.mp_id} ==1"><!--图片自动播放,只有商品编号等于1的时候才会显示出来-->
                         <ul>
                             <li><img th:src="${mix[4]}" width="671px"></li>
                             <li><img th:src="${mix[5]}" width="671px"></li>
@@ -2148,7 +2163,15 @@
                     </div>
                     </body>
                     <!--图片自动播放-->
-                    <div><img th:src="${mix[8]}" width="1930px"></div>
+                    <div><img th:src="${mix[8]}" width="1930px" th:if="${details.mp_id} ==1"></div>
+
+                    <div th:if="${details.mp_id} ==2"><!--商品详情加长 只有编号是2的时候才加长-->
+                        <div><img th:src="${mix[4]}" width="1930px"></div>
+                        <div><img th:src="${mix[5]}" width="1930px"></div>
+                        <div><img th:src="${mix[6]}" width="1930px"></div>
+                        <div><img th:src="${mix[7]}" width="1930px"></div>
+                        <div><img th:src="${mix[8]}" width="1930px"></div>
+                    </div>
                 </div>
             </div>
 

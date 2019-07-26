@@ -21,6 +21,9 @@ public class DetailsController_Consumer {
     public String detailsAll(Model model, @PathVariable Integer id){//查询对应的商品详情信息
         //根据商品编号查出的详细商品信息
         model.addAttribute("details",detailsService.detailsAll(id).get(0));
+        //int a= detailsService.detailsAll(id).get(0).getMp_id();
+        //System.out.print("数据编号等于="+a);
+
 
         //从商品详情集合中拿出（介绍轮播图片）的字符
         String mp_file_imageCF = detailsService.detailsAll(id).get(0).getMp_file_image();

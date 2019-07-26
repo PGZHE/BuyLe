@@ -1,7 +1,7 @@
 package com.mll.springcloud.controller;
 
 import com.mll.pojo.Details;
-import com.mll.springcloud.serviceImpl.DetailsServiceImpl;
+import com.mll.springcloud.service.serviceImpl.DetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

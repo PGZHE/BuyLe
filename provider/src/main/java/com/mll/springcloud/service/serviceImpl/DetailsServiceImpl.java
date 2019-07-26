@@ -1,4 +1,4 @@
-package com.mll.springcloud.serviceImpl;
+package com.mll.springcloud.service.serviceImpl;
 
 import com.mll.pojo.Details;
 import com.mll.springcloud.dao.DetailsDao;
