@@ -1,3 +1,4 @@
+/*
 package com.mll.springcloud.config;
 
 import com.netflix.loadbalancer.IRule;
@@ -23,3 +24,4 @@ public class ConfigBean {
         //return new RetryRule();//重试(碰到下线或者服务断开)
     }
 }
+*/

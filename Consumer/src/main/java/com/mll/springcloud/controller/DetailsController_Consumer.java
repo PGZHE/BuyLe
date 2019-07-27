@@ -1,12 +1,14 @@
 package com.mll.springcloud.controller;
 
 import com.mll.pojo.Details;
+import com.mll.pojo.MLL_PRODUCT_CATEGORY;
 import com.mll.springcloud.servicer.DetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,6 +17,20 @@ import java.util.List;
 public class DetailsController_Consumer {
     @Autowired
     private DetailsService detailsService;//注入service层
+
+    @ResponseBody
+    @RequestMapping("product_cate/all")
+    public List<MLL_PRODUCT_CATEGORY> All(){
+
+
+        List<MLL_PRODUCT_CATEGORY> all = detailsService.findAll();
+        for(MLL_PRODUCT_CATEGORY pc: all){
+
+            System.out.println("ps"+pc.getMpc_name());
+        }
+        return  detailsService.findAll();
+
+    }
 
 
     @RequestMapping(value = "consumer/details/list/{id}")
